@@ -4,7 +4,10 @@ import express from "express"
 import morgan from "morgan"
 import cors from "cors"
 import helmet from "helmet"
+import { hash } from "argon2"
 import { dbConnection } from "./mongo.js"
+import authRoutes from "../src/auth/authRoutes.js"
+import User from "../src/user/user.model.js"
 
 const middlewares = (app) =>{
     app.use(express.urlencoded({extended: false}))
@@ -16,7 +19,7 @@ const middlewares = (app) =>{
 }
 
 const routes = (app) =>{
-
+    app.use("/VirtualStore/v1/auth", authRoutes)
 }
 
 const conectDB = async() =>{
@@ -43,4 +46,37 @@ export const initServer = async () =>{
         console.log(`Server falied intit ${err}`)
         
     }
+}
+
+export const defaultAdmin = async() =>{
+    try {
+        const Adminemail = "admin@gmail.com"
+        const password = "admin123"
+
+        const existAdmin = await User.findOne({email: Adminemail})
+
+        if(!existAdmin){
+            const passwordEncrypt = await hash(password)
+
+            const adminUser = new User({
+                name: "Admin",
+                username: "administrador",
+                email: Adminemail,
+                password: passwordEncrypt,
+                role: "ADMIN"
+            })
+            await adminUser.save()
+            console.log("Administrador por defecto ha sido creado exitosamente!!!")
+        }
+        if(existAdmin){
+            console.log("Ya se ha generado el Administrador")
+        }
+
+    } catch (er) {
+        console.error("Error al crear el Administrador ", er)
+    }
+}
+
+export default {
+    defaultAdmin
 }
