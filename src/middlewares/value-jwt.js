@@ -1,5 +1,5 @@
 
-import User from "../user/user.model";
+import User from "../user/user.model.js";
 import jwt from "jsonwebtoken";
 
 

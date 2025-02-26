@@ -66,10 +66,11 @@ export const loginUser = async (req, res) =>{
         }
 
         const token = await generarJWT(user.id)
+        const saludo = user.username
 
         return res.status(200).json({
             success: true,
-            msg: "SESION INICIADA CON EXITO!!!",
+            msg: `BIENVENIDO ${saludo}`,
             token: token
         })
 

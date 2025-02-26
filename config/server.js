@@ -7,6 +7,7 @@ import helmet from "helmet"
 import { hash } from "argon2"
 import { dbConnection } from "./mongo.js"
 import authRoutes from "../src/auth/authRoutes.js"
+import userRoutes from "../src/user/userRoutes.js"
 import User from "../src/user/user.model.js"
 
 const middlewares = (app) =>{
@@ -20,6 +21,7 @@ const middlewares = (app) =>{
 
 const routes = (app) =>{
     app.use("/VirtualStore/v1/auth", authRoutes)
+    app.use("/VirtualStore/v1/users", userRoutes)
 }
 
 const conectDB = async() =>{
@@ -76,6 +78,7 @@ export const defaultAdmin = async() =>{
         console.error("Error al crear el Administrador ", er)
     }
 }
+
 
 export default {
     defaultAdmin
