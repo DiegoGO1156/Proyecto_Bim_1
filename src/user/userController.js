@@ -61,7 +61,7 @@ export const updatePassword = async (req, res) =>{
             })
         }
         
-        const validPassword = verify(user.password, oldPassword)
+        const validPassword = await verify(user.password, oldPassword)
         
         if(!validPassword){
             return res.status(401).json({
@@ -70,7 +70,7 @@ export const updatePassword = async (req, res) =>{
             })
         }
 
-        const upPass = hash(newPassword)
+        const upPass = await hash(newPassword)
         user.password = upPass
         await user.save()
 

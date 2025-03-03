@@ -24,7 +24,7 @@ export const valueJWT = async (req, resp, next)=>{
                 msg:"Token no valido - usuario con estado: False"
             })
         }
-        req.usuario = usuario;
+        req.user = usuario;
         next();
     } catch (e) {
         console.log(e)
