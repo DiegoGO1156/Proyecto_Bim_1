@@ -1,3 +1,4 @@
+import Category from "../category/categoryModel.js"
 import Role from "../role/role.model.js"
 import User from "../user/user.model.js"
 
@@ -21,5 +22,19 @@ export const notUserExist = async (id = "") =>{
     const user = await User.findById(id)
     if(!user){
         throw new Error (`El ID ${id} no pertenece a ningun usuario`)
+    }
+}
+
+export const existCategory = async (nameCategory = "") =>{
+    const existCateg = await Category.findOne({nameCategory})
+    if(existCateg){
+        throw new Error (`La categoria ${nameCategory} ya existe`)
+    }
+}
+
+export const nullCategory = async(id = "") =>{
+    const category = await Category.findById(id)
+    if(!category){
+        throw new Error (`El ID ${id} no pertenece a ninguna categoria`)
     }
 }

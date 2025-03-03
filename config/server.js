@@ -8,7 +8,9 @@ import { hash } from "argon2"
 import { dbConnection } from "./mongo.js"
 import authRoutes from "../src/auth/authRoutes.js"
 import userRoutes from "../src/user/userRoutes.js"
+import categoryRoutes from "../src/category/categoryRoutes.js"
 import User from "../src/user/user.model.js"
+import Category from "../src/category/categoryModel.js"
 
 const middlewares = (app) =>{
     app.use(express.urlencoded({extended: false}))
@@ -22,6 +24,7 @@ const middlewares = (app) =>{
 const routes = (app) =>{
     app.use("/VirtualStore/v1/auth", authRoutes)
     app.use("/VirtualStore/v1/users", userRoutes)
+    app.use("/VirtualStore/v1/category", categoryRoutes)
 }
 
 const conectDB = async() =>{
@@ -79,7 +82,27 @@ export const defaultAdmin = async() =>{
     }
 }
 
+export const defaultCat = async () => {
+    try {
+        const categName = "Uncategorized";
+        const categExist = await Category.findOne({ nameCategory: categName }); 
+
+        if (!categExist) {
+            const categ = new Category({
+                nameCategory: categName, 
+            });
+            await categ.save();
+            console.log("Categoría por defecto ha sido creada con éxito!!!!");
+        } else {
+            console.log("Ya existe la categoría por defecto");
+        }
+    } catch (error) {
+        console.error("Error al crear la categoría por defecto:", error);
+    }
+};
+
 
 export default {
-    defaultAdmin
+    defaultAdmin,
+    defaultCat
 }
