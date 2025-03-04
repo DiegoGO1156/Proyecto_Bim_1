@@ -201,3 +201,20 @@ export const deleteProduct = async (req, res) =>{
         })
     }
 }
+
+export const getOutStock = async(req, res) =>{
+    try {
+        const notStock = await Producto.find({ stock: 0 });
+
+        return res.status(200).json({
+            success: true,
+            notStock
+        });
+    } catch (err) {
+        return res.status(500).json({
+            success: false,
+            msg: "Error al listar productos sin Stock",
+            error: err.message
+        })
+    }
+}

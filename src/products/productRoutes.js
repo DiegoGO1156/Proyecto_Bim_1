@@ -1,6 +1,6 @@
 import { Router } from "express";
 import { editDataProductValidator, editPriceProductValidator, editStockProductValidator, getValidatorProductId, validatorRegisterProduct } from "../middlewares/validator-product.js";
-import { editPrice, editProductData, editStock, filterProducts, findAllProducts, findProductById, newProduct } from "./productController.js";
+import { editPrice, editProductData, editStock, filterProducts, findAllProducts, findProductById, getOutStock, newProduct } from "./productController.js";
 
 
 const router = Router()
@@ -43,6 +43,11 @@ router.put(
     "/editPrice/:id",
     editPriceProductValidator,
     editPrice
+)
+
+router.get(
+    "/getOutStock",
+    getOutStock
 )
 
 export default router
