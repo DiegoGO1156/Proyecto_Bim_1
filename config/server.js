@@ -9,6 +9,7 @@ import { dbConnection } from "./mongo.js"
 import authRoutes from "../src/auth/authRoutes.js"
 import userRoutes from "../src/user/userRoutes.js"
 import categoryRoutes from "../src/category/categoryRoutes.js"
+import productRoutes from "../src/products/productRoutes.js"
 import User from "../src/user/user.model.js"
 import Category from "../src/category/categoryModel.js"
 
@@ -25,6 +26,7 @@ const routes = (app) =>{
     app.use("/VirtualStore/v1/auth", authRoutes)
     app.use("/VirtualStore/v1/users", userRoutes)
     app.use("/VirtualStore/v1/category", categoryRoutes)
+    app.use("/VirtualStore/v1/product", productRoutes)
 }
 
 const conectDB = async() =>{

@@ -1,5 +1,5 @@
-import Category from "../category/categoryModel"
-import Producto from "./productModel"
+import Category from "../category/categoryModel.js"
+import Producto from "./productModel.js"
 
 
 export const newProduct = async(req, res) =>{
@@ -13,7 +13,6 @@ export const newProduct = async(req, res) =>{
             description: data.description,
             precio: data.precio,
             stock: data.stock,
-            venta: data.venta,
             category: categoryFind._id
         })
 
@@ -96,7 +95,7 @@ export const filterProducts = async (req, res) =>{
         order.vent = 1
         order.category = 1
 
-        const products = await Producto.find(filter).sort(order).poputale("category", "nameCategory")
+        const products = await Producto.find(filter).sort(order).populate("category", "nameCategory")
 
         return res.status(200).json({
             success: true,
@@ -107,6 +106,97 @@ export const filterProducts = async (req, res) =>{
         return res.status(500).json({
             success: false, 
             msg: "Error al filtrar los productos",
+            error: err.message
+        })
+    }
+}
+
+export const editProductData = async(req, res) =>{
+    try {
+        const {id} = req.params
+        const {name, description, category}  = req.body
+
+        const findCategory = await Category.findOne({nameCategory: category})
+
+        const editNewProduct = await Producto.findByIdAndUpdate(id, {name: name, description: description, category: findCategory._id}, {new: true}).populate("category", "nameCategory")
+
+        return res.status(200).json({
+            success: true,
+            msg: "PRODUCTO EDITADO CON EXITO!!!",
+            editNewProduct
+        })
+
+    } catch (err) {
+        return res.status(500).json({
+            success: false,
+            msg: "Error al editar el producto",
+            error: err.message
+        })
+    }
+}
+
+export const editStock = async (req, res) =>{
+    try {
+        
+        const {id} = req.params
+        const {stock} = req.body
+
+        const stockUpdate = await Producto.findByIdAndUpdate(id, {stock: stock}, {new: true})
+
+        return res.status(200).json({
+            success: true, 
+            msg: "STOCK ACTUALIZADO CON EXITO",
+            stockUpdate
+        })
+
+    } catch (err) {
+        return res.status(500).json({
+            success: false,
+            msg: "Error al editar el stock del producto",
+            error: err.message
+        })
+    }
+}
+export const editPrice = async (req, res) =>{
+    try {
+        
+        const {id} = req.params
+        const {precio} = req.body
+
+        const priceUpdate = await Producto.findByIdAndUpdate(id, {precio: precio}, {new: true})
+
+        return res.status(200).json({
+            success: true, 
+            msg: "PRECIO ACTUALIZADO CON EXITO",
+            priceUpdate
+        })
+
+    } catch (err) {
+        return res.status(500).json({
+            success: false,
+            msg: "Error al editar el precio del producto",
+            error: err.message
+        })
+    }
+}
+
+export const deleteProduct = async (req, res) =>{
+    try {
+
+        const {id} = req.params
+
+        const deleteProduct = await Producto.findByIdAndUpdate(id, {stock: stock}, {new: true})
+
+        return res.status(200).json({
+            success: true,
+            msg: "PRODUCTO ELIMINADO CON EXITO!!!",
+            deleteProduct
+        })
+
+    } catch (err) {
+        return res.status(500).json({
+            success: false,
+            msg: "Error al eliminar el producto",
             error: err.message
         })
     }

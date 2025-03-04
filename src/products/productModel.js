@@ -4,7 +4,8 @@ import { model, Schema } from "mongoose";
 export const productoModel = Schema({
     name:{
         type:String,
-        require: true
+        require: true,
+        unique: true
     },
     description:{
         type:String,

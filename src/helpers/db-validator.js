@@ -1,4 +1,5 @@
 import Category from "../category/categoryModel.js"
+import Producto from "../products/productModel.js"
 import Role from "../role/role.model.js"
 import User from "../user/user.model.js"
 
@@ -30,11 +31,32 @@ export const existCategory = async (nameCategory = "") =>{
     if(existCateg){
         throw new Error (`La categoria ${nameCategory} ya existe`)
     }
+} 
+
+export const notExistCategory = async (nameCategory = "") =>{
+    const existCateg = await Category.findOne({nameCategory})
+    if(!existCateg){
+        throw new Error (`La categoria ${nameCategory} no existe`)
+    }
 }
 
 export const nullCategory = async(id = "") =>{
     const category = await Category.findById(id)
     if(!category){
         throw new Error (`El ID ${id} no pertenece a ninguna categoria`)
+    }
+}
+
+export const nullProduct = async(id = "") =>{
+    const productId = await Producto.findById(id)
+    if(!productId){
+        throw new Error (`El ID ${id} no pertenece a ningun producto`)
+    }
+}
+
+export const existProduct = async (name = "") =>{
+    const productExist = await Producto.findOne({name})
+    if(productExist){
+        throw new Error (`El nombre ${name} ya pertenece a otro producto`)
     }
 }
