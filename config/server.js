@@ -11,6 +11,7 @@ import userRoutes from "../src/user/userRoutes.js"
 import categoryRoutes from "../src/category/categoryRoutes.js"
 import productRoutes from "../src/products/productRoutes.js"
 import cartRoutes from "../src/carrito/cartRoutes.js"
+import purchaserRoute from "../src/purchase/purchaseRoute.js"
 import User from "../src/user/user.model.js"
 import Category from "../src/category/categoryModel.js"
 
@@ -29,6 +30,7 @@ const routes = (app) =>{
     app.use("/VirtualStore/v1/category", categoryRoutes)
     app.use("/VirtualStore/v1/product", productRoutes)
     app.use("/VirtualStore/v1/cart", cartRoutes)
+    app.use("/VirtualStore/v1/purchase", purchaserRoute)
 }
 
 const conectDB = async() =>{

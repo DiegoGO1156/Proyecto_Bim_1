@@ -39,4 +39,4 @@ export const productoModel = Schema({
     }
 )
 
-export default model("Producto  ", productoModel)
+export default model("Producto", productoModel)

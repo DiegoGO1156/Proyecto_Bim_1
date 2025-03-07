@@ -185,7 +185,7 @@ export const deleteProduct = async (req, res) =>{
 
         const {id} = req.params
 
-        const deleteProduct = await Producto.findByIdAndUpdate(id, {stock: stock}, {new: true})
+        const deleteProduct = await Producto.findByIdAndUpdate(id, {status: false}, {new: true})
 
         return res.status(200).json({
             success: true,
@@ -214,6 +214,26 @@ export const getOutStock = async(req, res) =>{
         return res.status(500).json({
             success: false,
             msg: "Error al listar productos sin Stock",
+            error: err.message
+        })
+    }
+}
+
+export const moreSales = async(req, res) =>{
+    try {
+        const moreSale = await Producto.find({sales})
+
+        if(moreSale >= 1){
+            return res.status(200).json({
+                success: true,
+                moreSale
+            })
+        }
+
+    } catch (err) {
+        return res.status(500).json({
+            success: false,
+            msg: "Error al listar los productos más vendidos",
             error: err.message
         })
     }

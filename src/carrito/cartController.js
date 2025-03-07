@@ -1,25 +1,33 @@
 import Producto from "../products/productModel.js";
-import User from "../user/user.model.js"
 import Carro from "./cartModel.js"
 
 export const newCart = async (req, res) => {
     try {
-        const { user, productos, quantity } = req.body;
+        const { productos, quantity } = req.body;
+        const userId = req.user._id;
 
-        const findEmail = await User.findOne({ email: user });
         const findProduct = await Producto.findOne({ name: productos });
-
-        let carrito = await Carro.findOne({ email: findEmail._id });
-
+        console.log(findProduct)
+        if (!findProduct) {
+            return res.status(404).json({
+                success: false,
+                msg: "Producto no encontrado"
+            });
+        }
+    
+        let carrito = await Carro.findOne({ email: userId });
+    
         if (!carrito) {
-            carrito = new Carro({ email: findEmail._id, products: [] });
+            carrito = new Carro({ email: userId, products: [] });
         }
 
         const addProduct = carrito.products.findIndex(p => p.product.equals(findProduct._id));
 
         if (addProduct !== -1) {
+        
             carrito.products[addProduct].quantity += quantity;
         } else {
+        
             carrito.products.push({ product: findProduct._id, quantity });
         }
 
@@ -43,13 +51,12 @@ export const newCart = async (req, res) => {
 export const minusProductCart = async(req, res) =>{
     try {
         
-        const { user, productos, quantity } = req.body;
+        const { productos, quantity } = req.body;
 
-        const findEmail = await User.findOne({ email: user });
         const findProduct = await Producto.findOne({ name: productos });
+        const userId = req.user._id;
 
-        let carrito = await Carro.findOne({ email: findEmail._id });
-
+        let carrito = await Carro.findOne({ email: userId });
         if (!carrito) {
             return res.status(404).json({
                 msg:"El carrito esta vacio"

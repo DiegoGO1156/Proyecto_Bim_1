@@ -1,6 +1,7 @@
 import { Router } from "express";
 import { editDataProductValidator, editPriceProductValidator, editStockProductValidator, getValidatorProductId, validatorRegisterProduct } from "../middlewares/validator-product.js";
-import { editPrice, editProductData, editStock, filterProducts, findAllProducts, findProductById, getOutStock, newProduct } from "./productController.js";
+import { deleteProduct, editPrice, editProductData, editStock, filterProducts, findAllProducts, findProductById, getOutStock, newProduct } from "./productController.js";
+import { check } from "express-validator";
 
 
 const router = Router()
@@ -48,6 +49,15 @@ router.put(
 router.get(
     "/getOutStock",
     getOutStock
+)
+
+router.delete(
+    "/deleteProduct/:id",
+    [
+        check("id", "ingrese un ID validao").isMongoId(),
+        check("id", "ingrese un ID").notEmpty()
+    ],
+    deleteProduct
 )
 
 export default router
