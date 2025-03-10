@@ -1,6 +1,6 @@
 import { body, param } from "express-validator";
 import { valueJWT } from "./value-jwt.js";
-import { existCategory, nullCategory } from "../helpers/db-validator.js";
+import { existCategory, isDefaultCategory, nullCategory } from "../helpers/db-validator.js";
 import { validarCampos } from "./validar-campos.js";
 import { tieneRole } from "./tiene-role.js";
 
@@ -28,6 +28,7 @@ export const deleteValidatorCategory = [
     valueJWT,
     tieneRole("ADMIN"),
     param("id", "Ingrese un Id valido").notEmpty(),
+    param("id").custom(isDefaultCategory),
     param("id").custom(nullCategory),
     validarCampos
 ]

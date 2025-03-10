@@ -57,7 +57,7 @@ export const findAllProducts = async (req, res) =>{
 
         const [total, productos] = await Promise.all([
             Producto.countDocuments(query),
-            Producto.find(query).skip(Number(desde)).limit(Number(limite))
+            Producto.find(query).skip(Number(desde)).limit(Number(limite)).populate("category", "nameCategory")
         ])
 
         return res.status(200).json({
@@ -77,23 +77,34 @@ export const findAllProducts = async (req, res) =>{
 
 export const filterProducts = async (req, res) =>{
     try {
-        let {name, precio, stock, venta, category, sort} = req.query
+        let {name, precio, stock, venta, category, sort, startsWith } = req.query
 
-        let filter = {}
-        if(name) filter.name = {$regex: name, $options: "i"}
-        if(precio) filter.precio = Number(precio)
-        if(stock) filter.stock = Number(stock)
-        if(venta) filter.venta = Number(venta)
-        if(category) filter.category = category
+        let filter = {};
+        
+        const isStartsWith = startsWith === "true"; 
 
-        let order = {}
+        if (name) {
+        filter.name = { 
+            $regex: isStartsWith ? `^${name}` : name, $options: "i" 
+        }
+        }
+
+        if (precio) filter.precio = Number(precio)
+        if (stock) filter.stock = Number(stock)
+        if (venta) filter.venta = Number(venta)
+        if (category) {
+            const findCategory = await Category.findOne({ nameCategory: category }); 
+            if (findCategory) {
+            filter.category = findCategory._id; 
+            } 
+        }
+
+        let order = {};
+        if (sort) {
+        order[sort] = sort === "asc" ? 1 : -1;
+        }
         if(sort === "asc") order.name = 1
         if(sort === "desc") order.name = -1
-
-        order.precio = 1
-        order.stock = 1
-        order.vent = 1
-        order.category = 1
 
         const products = await Producto.find(filter).sort(order).populate("category", "nameCategory")
 

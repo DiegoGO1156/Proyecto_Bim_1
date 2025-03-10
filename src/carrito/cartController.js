@@ -7,11 +7,18 @@ export const newCart = async (req, res) => {
         const userId = req.user._id;
 
         const findProduct = await Producto.findOne({ name: productos });
-        console.log(findProduct)
+        
         if (!findProduct) {
             return res.status(404).json({
                 success: false,
                 msg: "Producto no encontrado"
+            });
+        }
+
+        if (findProduct.stock === 0) {
+            return res.status(404).json({
+                success: false,
+                msg: "No hay más de este producto, intente comprar otro producto"
             });
         }
     

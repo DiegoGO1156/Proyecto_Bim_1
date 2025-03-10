@@ -153,9 +153,7 @@ export const editPurchase = async (req, res) => {
             const prodDB = prod.product.toString() === producto._id.toString() ? producto : prod;
             return acc + (prod.quantity * prodDB.precio);
         }, 0);
-
-
-        // Guardar los cambios en la base de datos
+        
         await producto.save(); 
         await factura.save(); 
 

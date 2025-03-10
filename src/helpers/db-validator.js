@@ -3,11 +3,10 @@ import Producto from "../products/productModel.js"
 import Role from "../role/role.model.js"
 import User from "../user/user.model.js"
 
-
-export const roleValido = async (role = "") =>{
-    const roleExist = Role.findOne({role: role})
-    if(!roleExist){
-        throw new Error (`El rol ${role}, existe en la base de Datos`)
+export const rolValido = async (role = '') =>{
+    const rolExistente = await Role.findOne({role})
+    if(!rolExistente){
+        throw new Error (`El rol ${role}, no existe en la base de datos`)
     }
 }
 
@@ -58,5 +57,26 @@ export const existProduct = async (name = "") =>{
     const productExist = await Producto.findOne({name})
     if(productExist){
         throw new Error (`El nombre ${name} ya pertenece a otro producto`)
+    }
+}
+
+export const existUsername = async(username = "") =>{
+    const userExist = await User.findOne({username})
+    if(userExist){
+        throw new Error (`El username: ${username} pertenece a otro usuario`)
+    }
+}
+
+export const isAdmin = async(id = "")=>{
+    const admin = await User.findById(id)
+    if(admin.email === "admin@gmail.com"){
+        throw new Error(`El Administrador no puede eliminar su cuenta`)
+    }
+}
+
+export const isDefaultCategory = async (id = "") =>{
+    const isCategory = await Category.findById(id)
+    if(isCategory.nameCategory === "Uncategorized"){
+        throw new Error (`No se puede eliminar la categoria por defecto`)
     }
 }

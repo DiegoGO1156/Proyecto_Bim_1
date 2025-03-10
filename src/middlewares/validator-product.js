@@ -11,7 +11,7 @@ export const validatorRegisterProduct = [
     body("name", "Ingrese un nombre para el producto").notEmpty(),
     body("name").custom(existProduct),
     body("description", "Ingrese una descripcion para el producto").notEmpty(),
-    body("description", "El minimo de descripcion es de 30 caracteres").isLength({min: 30}),
+    body("description", "El minimo de descripcion es de 30 caracteres").isLength({min: 20}),
     body("precio", "Ingrese el precio para el producto").notEmpty().isFloat({ gt: 0 }).withMessage("El precio debe ser mayor que cero"),
     body("stock", "Ingrese una catidad de productos existentes").notEmpty().isFloat({ gt: 0 }).withMessage("El stock debe ser mayor que cero"),
     body("category", "Ingrese un categoria para el producto").notEmpty(),

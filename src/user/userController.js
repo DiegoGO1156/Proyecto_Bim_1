@@ -44,13 +44,6 @@ export const updatePassword = async (req, res) =>{
     try {
         const {id} = req.params
         const {oldPassword, newPassword} = req.body
-
-        if(!oldPassword || !newPassword){
-            return res.status(400).json({
-                success: false,
-                msg: "Llene todos los campos solicitados"
-            })
-        }
         
         const user = await User.findById(id)
 
@@ -61,12 +54,11 @@ export const updatePassword = async (req, res) =>{
             })
         }
         
-        const validPassword = await verify(user.password, oldPassword)
-        
-        if(!validPassword){
+        const validPass = await verify(user.password, oldPassword)
+
+        if(!validPass){
             return res.status(401).json({
-                success: false,
-                msg: "Verifique e intente nuevamente con la contraseña correcta antes de establecer una nueva"
+                msg: "Verifique la contraseña actual"
             })
         }
 
@@ -95,13 +87,6 @@ export const updateRoleAdmin = async(req, res) =>{
 
         const {role} = req.body
 
-        if(role !== "ADMIN"){
-            return res.status(400).json({
-                success: false,
-                msg: "El role que quiere asignar no es ADMIN"
-            })
-        }
-
         const user = await User.findByIdAndUpdate(id, {role: role}, {new: true})
 
         return res.status(200).json({
@@ -114,6 +99,40 @@ export const updateRoleAdmin = async(req, res) =>{
         return res.status(500).json({
             success: false,
             msg: "Error al intentar cambiar de Rol al usuario escogido",
+            error: err.message
+        })
+    }
+}
+
+export const deleteUserProfile = async (req, res) =>{
+    try {
+        
+        const {id} = req.params
+        const {password} = req.body
+        
+        const userFind = await User.findById(id)
+
+        const validPassword = await verify(userFind.password, password)
+
+        if(!validPassword){
+            return res.status(401).json({
+                success: false,
+                msg: "Contraseña Incorrecta"
+            })
+        }
+
+        const deleteProfile = await User.findByIdAndUpdate(id, {status: false}, {new: true})
+
+        return res.status(200).json({
+            success: true,
+            msg: "PERFIL ELIMINADO CON EXITO",
+            deleteProfile
+        })
+
+    } catch (err) {
+        return res.status(500).json({
+            success: false,
+            msg: "Error al intentar eliminar el perfil",
             error: err.message
         })
     }
