@@ -1,0 +1,78 @@
+[{
+  "_id": {
+    "$oid": "67c64a515e374ea87c7bf0aa"
+  },
+  "nameCategory": "Uncategorized",
+  "status": true,
+  "createdAt": {
+    "$date": "2025-03-04T00:33:21.618Z"
+  },
+  "updatedAt": {
+    "$date": "2025-03-04T02:52:52.045Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "67ce895552f4f443bbc91007"
+  },
+  "nameCategory": "Productos de limpieza",
+  "status": true,
+  "createdAt": {
+    "$date": "2025-03-10T06:40:21.715Z"
+  },
+  "updatedAt": {
+    "$date": "2025-03-10T06:40:21.715Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "67ce895f52f4f443bbc9100b"
+  },
+  "nameCategory": "Alimentos Enlatados",
+  "status": true,
+  "createdAt": {
+    "$date": "2025-03-10T06:40:31.929Z"
+  },
+  "updatedAt": {
+    "$date": "2025-03-10T06:40:31.929Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "67ce896c52f4f443bbc9100f"
+  },
+  "nameCategory": "Cereales",
+  "status": true,
+  "createdAt": {
+    "$date": "2025-03-10T06:40:44.366Z"
+  },
+  "updatedAt": {
+    "$date": "2025-03-10T06:40:44.366Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "67ce897352f4f443bbc91013"
+  },
+  "nameCategory": "Frutas",
+  "status": true,
+  "createdAt": {
+    "$date": "2025-03-10T06:40:51.005Z"
+  },
+  "updatedAt": {
+    "$date": "2025-03-10T06:40:51.005Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "67ce897a52f4f443bbc91017"
+  },
+  "nameCategory": "Verduras",
+  "status": true,
+  "createdAt": {
+    "$date": "2025-03-10T06:40:58.203Z"
+  },
+  "updatedAt": {
+    "$date": "2025-03-10T06:40:58.203Z"
+  }
+}]

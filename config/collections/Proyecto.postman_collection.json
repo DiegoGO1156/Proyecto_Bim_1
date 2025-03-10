@@ -1,0 +1,903 @@
+{
+	"info": {
+		"_postman_id": "96952183-490d-4877-a383-72959bc0e021",
+		"name": "Proyecto",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "42665426"
+	},
+	"item": [
+		{
+			"name": "Auth",
+			"item": [
+				{
+					"name": "Register",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Diego Garcia\",\r\n    \"username\": \"dgarcia\",\r\n    \"email\": \"dgarcia@gmail.com\",\r\n    \"password\": \"12345678\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/VirtualStore/v1/auth/register",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"VirtualStore",
+								"v1",
+								"auth",
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\": \"dgarcia\",\r\n    \"email\": \"dgarcia@gmail.com\",\r\n    \"password\": \"12345678\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/VirtualStore/v1/auth/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"VirtualStore",
+								"v1",
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Category",
+			"item": [
+				{
+					"name": "New Category",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "x-token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2N2M1YWM3NzY3NGRlZjdlOTZkOGRjZWQiLCJpYXQiOjE3NDEwMTUxMjcsImV4cCI6MTc0MTAxODcyN30.IvuwIvm1zxzdWOIo6--akLVKL2VmGJHLeLabGKSUWOQ",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nameCategory\": \"Cereales\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/VirtualStore/v1/category/newCategory",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"VirtualStore",
+								"v1",
+								"category",
+								"newCategory"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Categories",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2N2JlNjRiODliNzIyZGIyMjEyYWY2NGMiLCJpYXQiOjE3NDE1ODgwMDcsImV4cCI6MTc0MTU5MTYwN30.zaUCceL02ulXyfQCBqaPpbLjjVF2aYv2jLt76svrIik",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/VirtualStore/v1/category/newCategory",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"VirtualStore",
+								"v1",
+								"category",
+								"newCategory"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Edit Category",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "x-token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2N2M1YWNiMDY3NGRlZjdlOTZkOGRjZjAiLCJpYXQiOjE3NDEwMTkyNjksImV4cCI6MTc0MTAyMjg2OX0.0IZ_-fD_vKnZC-jkdA8mYXKQTAg1SyGoNIT1s-6fxxk",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Alimentos sellados al vacio\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/VirtualStore/v1/category/editCategory/67c5cb18009d3a2ea1e4bcb3",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"VirtualStore",
+								"v1",
+								"category",
+								"editCategory",
+								"67c5cb18009d3a2ea1e4bcb3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Category",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "x-token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2N2M1YWNiMDY3NGRlZjdlOTZkOGRjZjAiLCJpYXQiOjE3NDEwMTkyNjksImV4cCI6MTc0MTAyMjg2OX0.0IZ_-fD_vKnZC-jkdA8mYXKQTAg1SyGoNIT1s-6fxxk",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Alimentos sellados al vacio\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/VirtualStore/v1/category/deleteCategory/67c5cb18009d3a2ea1e4bcb3",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"VirtualStore",
+								"v1",
+								"category",
+								"deleteCategory",
+								"67c5cb18009d3a2ea1e4bcb3"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Product",
+			"item": [
+				{
+					"name": "new Product",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "x-token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2N2JlNjRiODliNzIyZGIyMjEyYWY2NGMiLCJpYXQiOjE3NDEwNTE1MzUsImV4cCI6MTc0MTA1NTEzNX0.Q-sUAbL_RlcmyI-fPvMolNSqRaBvTtBIhTpBpQB39HU",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Atún Embasado\",\r\n    \"description\": \"Es un atún de alta calidad exportado desde noruega\",\r\n    \"precio\": 0.20,\r\n    \"stock\": 0,\r\n    \"category\": \"Uncategorized\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/VirtualStore/v1/product/newProduct",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"VirtualStore",
+								"v1",
+								"product",
+								"newProduct"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get product ID",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2N2JlNjRiODliNzIyZGIyMjEyYWY2NGMiLCJpYXQiOjE3NDEwNTE1MzUsImV4cCI6MTc0MTA1NTEzNX0.Q-sUAbL_RlcmyI-fPvMolNSqRaBvTtBIhTpBpQB39HU",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Atún Embasado\",\r\n    \"description\": \"Es un atún de alta calidad exportado desde noruega\",\r\n    \"precio\": 0.20,\r\n    \"stock\": 0,\r\n    \"category\": \"Uncategorized\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/VirtualStore/v1/product/findProduct/67c65717be5baf1420802608",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"VirtualStore",
+								"v1",
+								"product",
+								"findProduct",
+								"67c65717be5baf1420802608"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get all products",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2N2JlNjRiODliNzIyZGIyMjEyYWY2NGMiLCJpYXQiOjE3NDEwNTE1MzUsImV4cCI6MTc0MTA1NTEzNX0.Q-sUAbL_RlcmyI-fPvMolNSqRaBvTtBIhTpBpQB39HU",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Atún Embasado\",\r\n    \"description\": \"Es un atún de alta calidad exportado desde noruega\",\r\n    \"precio\": 0.20,\r\n    \"stock\": 0,\r\n    \"category\": \"Uncategorized\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/VirtualStore/v1/product/allProducts",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"VirtualStore",
+								"v1",
+								"product",
+								"allProducts"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Filter Product",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2N2JlNjRiODliNzIyZGIyMjEyYWY2NGMiLCJpYXQiOjE3NDEwNTE1MzUsImV4cCI6MTc0MTA1NTEzNX0.Q-sUAbL_RlcmyI-fPvMolNSqRaBvTtBIhTpBpQB39HU",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Atún Embasado\",\r\n    \"description\": \"Es un atún de alta calidad exportado desde noruega\",\r\n    \"precio\": 0.20,\r\n    \"stock\": 0,\r\n    \"category\": \"Uncategorized\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/VirtualStore/v1/product/allProducts",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"VirtualStore",
+								"v1",
+								"product",
+								"allProducts"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Sin Stock",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2N2JlNjRiODliNzIyZGIyMjEyYWY2NGMiLCJpYXQiOjE3NDEwNTE1MzUsImV4cCI6MTc0MTA1NTEzNX0.Q-sUAbL_RlcmyI-fPvMolNSqRaBvTtBIhTpBpQB39HU",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Atún Embasado\",\r\n    \"description\": \"Es un atún de alta calidad exportado desde noruega\",\r\n    \"precio\": 0.20,\r\n    \"stock\": 0,\r\n    \"category\": \"Uncategorized\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/VirtualStore/v1/product/allProducts",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"VirtualStore",
+								"v1",
+								"product",
+								"allProducts"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Edit Product",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "x-token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2N2JlNjRiODliNzIyZGIyMjEyYWY2NGMiLCJpYXQiOjE3NDEwNTQ1NjYsImV4cCI6MTc0MTA1ODE2Nn0.o6CJ9pn_pNZuElyEorHlcWrnJQsXobxxgEsnqS4m7q4",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Wisky Blue Label n5\",\r\n    \"description\": \"Wisky de alta calidad proveniente de Blue Label\",\r\n    \"category\": \"Cereales\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/VirtualStore/v1/product/editData/67c65d1ef781c4e43d313865",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"VirtualStore",
+								"v1",
+								"product",
+								"editData",
+								"67c65d1ef781c4e43d313865"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete Product",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "x-token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2N2JlNjRiODliNzIyZGIyMjEyYWY2NGMiLCJpYXQiOjE3NDEwNTQ1NjYsImV4cCI6MTc0MTA1ODE2Nn0.o6CJ9pn_pNZuElyEorHlcWrnJQsXobxxgEsnqS4m7q4",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Wisky Blue Label n5\",\r\n    \"description\": \"Wisky de alta calidad proveniente de Blue Label\",\r\n    \"category\": \"Cereales\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/VirtualStore/v1/product/deleteProduct/67c65d1ef781c4e43d313865",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"VirtualStore",
+								"v1",
+								"product",
+								"deleteProduct",
+								"67c65d1ef781c4e43d313865"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Edit Stock",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "x-token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2N2JlNjRiODliNzIyZGIyMjEyYWY2NGMiLCJpYXQiOjE3NDEwNTQ1NjYsImV4cCI6MTc0MTA1ODE2Nn0.o6CJ9pn_pNZuElyEorHlcWrnJQsXobxxgEsnqS4m7q4",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"stock\": 80\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/VirtualStore/v1/product/editStock/67c65d1ef781c4e43d313865",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"VirtualStore",
+								"v1",
+								"product",
+								"editStock",
+								"67c65d1ef781c4e43d313865"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Edit Price",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "x-token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2N2JlNjRiODliNzIyZGIyMjEyYWY2NGMiLCJpYXQiOjE3NDEwNTQ1NjYsImV4cCI6MTc0MTA1ODE2Nn0.o6CJ9pn_pNZuElyEorHlcWrnJQsXobxxgEsnqS4m7q4",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"stock\": 80\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/VirtualStore/v1/product/editStock/67c65d1ef781c4e43d313865",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"VirtualStore",
+								"v1",
+								"product",
+								"editStock",
+								"67c65d1ef781c4e43d313865"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "User",
+			"item": [
+				{
+					"name": "Update User",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "x-token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2N2JlNjdkMmU2Y2I1NzNjOTk3OWE4MmEiLCJpYXQiOjE3NDE1ODQ4NzEsImV4cCI6MTc0MTU4ODQ3MX0.A332DKJhlWCHvGlChH9K_qQyjjstu7vKxqAxECCOIZE",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"A\",\r\n    \"username\": \"dgarcia\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/VirtualStore/v1/users/updateUser/67be67d2e6cb573c9979a82a",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"VirtualStore",
+								"v1",
+								"users",
+								"updateUser",
+								"67be67d2e6cb573c9979a82a"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Password",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "x-token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2N2JlNjdkMmU2Y2I1NzNjOTk3OWE4MmEiLCJpYXQiOjE3NDE1ODQ4NzEsImV4cCI6MTc0MTU4ODQ3MX0.A332DKJhlWCHvGlChH9K_qQyjjstu7vKxqAxECCOIZE",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n   \"oldPassword\": \"123456789\",\r\n   \"newPassword\": \"12345678\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/VirtualStore/v1/users/updatePassword/67be67d2e6cb573c9979a82a",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"VirtualStore",
+								"v1",
+								"users",
+								"updatePassword",
+								"67be67d2e6cb573c9979a82a"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update Role",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "x-token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2N2M1YWNiMDY3NGRlZjdlOTZkOGRjZjAiLCJpYXQiOjE3NDEwMDgxMTEsImV4cCI6MTc0MTAxMTcxMX0.SdNwXmdg7FrBzTJLJwioDgcle6wF3X7EYZHrxIxRMlg",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n   \"oldPassword\": \"12345678\",\r\n   \"newPassword\": \"123456789\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/VirtualStore/v1/users/updatePassword/67c5acb0674def7e96d8dcf0",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"VirtualStore",
+								"v1",
+								"users",
+								"updatePassword",
+								"67c5acb0674def7e96d8dcf0"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete User",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "x-token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2N2M1YWNiMDY3NGRlZjdlOTZkOGRjZjAiLCJpYXQiOjE3NDEwMDgxMTEsImV4cCI6MTc0MTAxMTcxMX0.SdNwXmdg7FrBzTJLJwioDgcle6wF3X7EYZHrxIxRMlg",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n   \"oldPassword\": \"12345678\",\r\n   \"newPassword\": \"123456789\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/VirtualStore/v1/users/deleteUser/67c5acb0674def7e96d8dcf0",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"VirtualStore",
+								"v1",
+								"users",
+								"deleteUser",
+								"67c5acb0674def7e96d8dcf0"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Carrito",
+			"item": [
+				{
+					"name": "carrito Products",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"dgarcia@gmail.com\",\r\n    \"product\": \"Wisky\",\r\n    \"quantity\": 5\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/VirtualStore/v1/cart/productos",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"VirtualStore",
+								"v1",
+								"cart",
+								"productos"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Edit carrito Products",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"dgarcia@gmail.com\",\r\n    \"product\": \"Wisky\",\r\n    \"quantity\": 5\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/VirtualStore/v1/cart/productos",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"VirtualStore",
+								"v1",
+								"cart",
+								"productos"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Compra",
+			"item": [
+				{
+					"name": "Buy Cart",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "x-token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2N2JlNjRiODliNzIyZGIyMjEyYWY2NGMiLCJpYXQiOjE3NDExMzU0NjgsImV4cCI6MTc0MTEzOTA2OH0.S5qI7GkG-lDFTu4zYZ6lNvLvADXwdtW6Whpwn9zeL1g",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:3000/VirtualStore/v1/purchase/purchaseCart",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"VirtualStore",
+								"v1",
+								"purchase",
+								"purchaseCart"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Historial Compras",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2N2JlNjRiODliNzIyZGIyMjEyYWY2NGMiLCJpYXQiOjE3NDEyMzI1MTIsImV4cCI6MTc0MTIzNjExMn0.X_2ZIwrIGOVsD1LdYKcniaY2vWP5Bs7QL5ahi1w0hjQ",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:3000/VirtualStore/v1/purchase/historyPurchase",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"VirtualStore",
+								"v1",
+								"purchase",
+								"historyPurchase"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Edit Purchase",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2N2JlNjRiODliNzIyZGIyMjEyYWY2NGMiLCJpYXQiOjE3NDEyMzI1MTIsImV4cCI6MTc0MTIzNjExMn0.X_2ZIwrIGOVsD1LdYKcniaY2vWP5Bs7QL5ahi1w0hjQ",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:3000/VirtualStore/v1/purchase/historyPurchase",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"VirtualStore",
+								"v1",
+								"purchase",
+								"historyPurchase"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

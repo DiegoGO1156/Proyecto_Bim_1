@@ -1,0 +1,160 @@
+[{
+  "_id": {
+    "$oid": "67ce89cd52f4f443bbc91021"
+  },
+  "name": "Cereal Corn Flakes",
+  "description": "Cereal sin azúcar proveniente de la marca Conr Flakes",
+  "precio": 20,
+  "stock": 90,
+  "venta": 1,
+  "category": {
+    "$oid": "67ce896c52f4f443bbc9100f"
+  },
+  "status": true,
+  "createdAt": {
+    "$date": "2025-03-10T06:42:21.617Z"
+  },
+  "updatedAt": {
+    "$date": "2025-03-10T06:42:21.617Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "67ce89f552f4f443bbc91027"
+  },
+  "name": "Choco Crispi",
+  "description": "Cereal de arroz inflado cubierto de chocolate",
+  "precio": 35,
+  "stock": 50,
+  "venta": 0,
+  "category": {
+    "$oid": "67ce896c52f4f443bbc9100f"
+  },
+  "status": true,
+  "createdAt": {
+    "$date": "2025-03-10T06:43:01.678Z"
+  },
+  "updatedAt": {
+    "$date": "2025-03-10T06:43:01.678Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "67ce8a2652f4f443bbc9102d"
+  },
+  "name": "Froot Loops",
+  "description": "Cereal de aros con sabor a distintas frutas",
+  "precio": 45,
+  "stock": 80,
+  "venta": 0,
+  "category": {
+    "$oid": "67ce896c52f4f443bbc9100f"
+  },
+  "status": true,
+  "createdAt": {
+    "$date": "2025-03-10T06:43:50.648Z"
+  },
+  "updatedAt": {
+    "$date": "2025-03-10T06:43:50.648Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "67ce8a4852f4f443bbc91033"
+  },
+  "name": "Manzanas",
+  "description": "Manzas exportadas desde Estados Unidos",
+  "precio": 45,
+  "stock": 80,
+  "venta": 0,
+  "category": {
+    "$oid": "67ce897352f4f443bbc91013"
+  },
+  "status": true,
+  "createdAt": {
+    "$date": "2025-03-10T06:44:24.770Z"
+  },
+  "updatedAt": {
+    "$date": "2025-03-10T06:44:24.770Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "67ce8a6b52f4f443bbc9103c"
+  },
+  "name": "Peras",
+  "description": "Peras exportadas desde Canada y de alta calidad",
+  "precio": 15,
+  "stock": 80,
+  "venta": 0,
+  "category": {
+    "$oid": "67ce897352f4f443bbc91013"
+  },
+  "status": true,
+  "createdAt": {
+    "$date": "2025-03-10T06:44:59.025Z"
+  },
+  "updatedAt": {
+    "$date": "2025-03-10T06:44:59.025Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "67ce8ab1b39c39143227f312"
+  },
+  "name": "Atún Enlatado",
+  "description": "Atún enlatado de alta calidad y muy bien conservado",
+  "precio": 48,
+  "stock": 500,
+  "venta": 0,
+  "category": {
+    "$oid": "67ce895f52f4f443bbc9100b"
+  },
+  "status": true,
+  "createdAt": {
+    "$date": "2025-03-10T06:46:09.401Z"
+  },
+  "updatedAt": {
+    "$date": "2025-03-10T06:46:09.401Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "67ce8ac0b39c39143227f318"
+  },
+  "name": "Atún Enlatado Picante",
+  "description": "Atún enlatado de alta calidad y muy bien conservado",
+  "precio": 48,
+  "stock": 500,
+  "venta": 0,
+  "category": {
+    "$oid": "67ce895f52f4f443bbc9100b"
+  },
+  "status": true,
+  "createdAt": {
+    "$date": "2025-03-10T06:46:24.618Z"
+  },
+  "updatedAt": {
+    "$date": "2025-03-10T06:46:24.618Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "67ce8ae6b39c39143227f31e"
+  },
+  "name": "Tomate",
+  "description": "Tomate de cosecha natural y nacional",
+  "precio": 8,
+  "stock": 500,
+  "venta": 0,
+  "category": {
+    "$oid": "67ce897a52f4f443bbc91017"
+  },
+  "status": true,
+  "createdAt": {
+    "$date": "2025-03-10T06:47:02.509Z"
+  },
+  "updatedAt": {
+    "$date": "2025-03-10T06:47:02.509Z"
+  }
+}]

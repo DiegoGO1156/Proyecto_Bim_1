@@ -1,0 +1,85 @@
+[{
+  "_id": {
+    "$oid": "67be64b89b722db2212af64c"
+  },
+  "name": "Admin",
+  "username": "administrador",
+  "email": "admin@gmail.com",
+  "password": "$argon2id$v=19$m=65536,t=3,p=4$3lGh5Tf/JMpe3Rd9hxLAQQ$fWCTIl4Q1NlvvVFkiWKxR0Vm8FAWKqwtAN22eJ+kQfk",
+  "role": "ADMIN",
+  "status": true,
+  "createdAt": {
+    "$date": "2025-02-26T00:47:52.424Z"
+  },
+  "updatedAt": {
+    "$date": "2025-02-26T00:47:52.424Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "67ce88f952f4f443bbc90ffa"
+  },
+  "name": "Diego Garcia",
+  "username": "dgarcia",
+  "email": "dgarcia@gmail.com",
+  "password": "$argon2id$v=19$m=65536,t=3,p=4$bX9RrpJ0+bNog5LQq2+5og$2LbjuMvssSgI4f+/lEnM6ZIs9v8tTM42FFHfvkrJzfE",
+  "role": "CLIENT",
+  "status": true,
+  "createdAt": {
+    "$date": "2025-03-10T06:38:49.739Z"
+  },
+  "updatedAt": {
+    "$date": "2025-03-10T06:38:49.739Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "67ce890952f4f443bbc90ffd"
+  },
+  "name": "Esteban Cano",
+  "username": "ecano",
+  "email": "ecano@gmail.com",
+  "password": "$argon2id$v=19$m=65536,t=3,p=4$i3U35Dl2RnMpBcROlwt4YA$abRezGmcsOAaw8IN00tb8E5SyiCJplmS6bT2hau3ch4",
+  "role": "CLIENT",
+  "status": true,
+  "createdAt": {
+    "$date": "2025-03-10T06:39:05.330Z"
+  },
+  "updatedAt": {
+    "$date": "2025-03-10T06:39:05.330Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "67ce891a52f4f443bbc91000"
+  },
+  "name": "Christian Medrano",
+  "username": "cmedrano",
+  "email": "cmedrano@gmail.com",
+  "password": "$argon2id$v=19$m=65536,t=3,p=4$aYOpu6CHKRBoZxM1TUCl3Q$JfHUG9FuxhJjdoGS8zrb1/DiYhgEYwyGXWg4zr88nSs",
+  "role": "CLIENT",
+  "status": true,
+  "createdAt": {
+    "$date": "2025-03-10T06:39:22.740Z"
+  },
+  "updatedAt": {
+    "$date": "2025-03-10T06:39:22.740Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "67ce894052f4f443bbc91003"
+  },
+  "name": "Carlos Cortez",
+  "username": "ccortez",
+  "email": "ccortez@gmail.com",
+  "password": "$argon2id$v=19$m=65536,t=3,p=4$I125I4Rzxgxxvn/lbbGM0Q$DJIaIXbNINwOP2qXKM1pwi3b6mNNPGMxBvMPfoSFz1g",
+  "role": "CLIENT",
+  "status": true,
+  "createdAt": {
+    "$date": "2025-03-10T06:40:00.966Z"
+  },
+  "updatedAt": {
+    "$date": "2025-03-10T06:40:00.966Z"
+  }
+}]
